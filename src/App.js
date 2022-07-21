@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import {Component} from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Nav from "./Navigasi/nav";
+import Home from "./Home/home";
+import List from "./List/list";
+import Tentang from "./Tentang/tentang";
+class App extends Component {
+  
+  render() {
+    return (
+      <BrowserRouter>
+       <Nav />
+       
+       <Routes>
+         <Route path="/" element={<Home /> } />
+         <Route path="/list" element={<List /> } />
+         <Route path="/tentang" element={<Tentang /> } />
+         
+       </Routes>
+      </BrowserRouter>
+    )
+  }
 }
 
 export default App;
