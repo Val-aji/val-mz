@@ -1,6 +1,8 @@
 import {Component} from "react";
 import axios from "axios";
 import "../App.css";
+import {connect} from "react-redux"
+
 
 class Home extends Component {
   constructor(props) {
@@ -12,17 +14,21 @@ class Home extends Component {
       
     }
     this.handleSearch = this.handleSearch.bind(this)
+    this.getApiToData = this.getApiToData.bind(this)
   }
   
+  getApiToData(valueData) {
+   this.setState({data: valueData})
+  }
   
   componentDidMount() {
-    axios.get("https://api.tvmaze.com/shows").then(res => this.setState({data: res.data.filter(i => i.id <= 100)}))
+  // callback
+   this.props.getApi(this.getApiToData)
     
   }
   
   handleAddList(e) {
     e.target.classList.toggle("text-amber-900")
-   
   }
   
   handleSearch(e) {
@@ -35,7 +41,7 @@ class Home extends Component {
   }
   
   render() {
-    const {state} = this
+    const {state, props} = this
     const data = state.valueSearch === false ? state.data : state.dataSearch
     return(
       <>
@@ -46,6 +52,7 @@ class Home extends Component {
        
        
        <div className="flex flex-wrap justify-around px-2 md:justify-center">
+       
           {data.map((value, index) => {
             return (
              <div className="w-2/5 md:mx-2 md:w-2/12">
@@ -74,4 +81,17 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const stateHome = state => {
+  return {
+     
+    
+  }
+}
+
+const actionHome = dispatch => {
+  return {
+    getApi: callback => dispatch({type: "getApi", getApiToData:callback })
+  }
+}
+
+export default connect(stateHome, actionHome)(Home);
