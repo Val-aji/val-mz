@@ -6,9 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import {createStore} from "redux";
 import {Provider} from "react-redux"
 
-
 const initialState = {
-  dataApi: []
+  dataApi: [],
+  dataList: []
 }
 const reducer = (state = initialState, action) => {
   switch(action.type) {
@@ -19,17 +19,23 @@ const reducer = (state = initialState, action) => {
       axios.get("https://api.tvmaze.com/shows").then(res => {
         const data = res.data.filter(i => i.id <= 100)
         getApiToData(data)
-        
-        
-          
+            
         })
       break;
       
-      
+    case "addList":
+      console.log(state.dataApi)
+        const dataList = state.dataApi.filter(i => i.id === action.target)
+        console.log(dataList)
+        return {
+          ...state,
+          dataList: dataList
+        }
+        break;
   
-     default:
-         return {...state}
-   }
+    default:
+       return {...state}
+  }
 }
 const storeRedux = createStore(reducer)
 
@@ -42,7 +48,6 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
+
 reportWebVitals();

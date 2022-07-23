@@ -48,15 +48,18 @@ class Tentang extends Component {
         
            <div className="my-10">
               <table className="px-2">
-                 <tr className="border">
-                    <td><p className="font-semibold p-2">No </p>
-                    </td>
-                    <td><p className="font-semibold p-2">Nama Film </p>
-                    </td>
-                    <td><p className="font-semibold p-2">Link Asli </p>
-                    </td>
+                <thead>
+                  <tr className="border">
+                      <td><p className="font-semibold p-2">No </p>
+                      </td>
+                      <td><p className="font-semibold p-2">Nama Film </p>
+                      </td>
+                      <td><p className="font-semibold p-2">Link Asli </p>
+                      </td>
                   </tr>
-                
+                </thead>
+
+              <tbody>
                 {data.map((value, index) => {
                    return (
                    <tr key={index} className="border">
@@ -70,7 +73,7 @@ class Tentang extends Component {
                   
                   )
                 })}
-                    
+              </tbody>
                   
               
               

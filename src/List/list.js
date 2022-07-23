@@ -1,22 +1,42 @@
 import {Component} from "react";
+import {connect} from "react-redux";
 
 class List extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      
+      dataList: []    
     }
+  }
+
+  
+  componentDidMount() {
+    
   }
   
   
   render() {
     return(
       <>
-        <p className="text-red-400"> HALAMAN LIST </p>
+        
       
       </>
     )
   }
 }
 
-export default List;
+
+const stateList = state => {
+  return {
+
+  }
+}
+
+const actionList = action => {
+  return {
+
+  }
+}
+
+export default connect(stateList, actionList)(List);
+

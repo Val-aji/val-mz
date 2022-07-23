@@ -15,6 +15,7 @@ class Home extends Component {
     }
     this.handleSearch = this.handleSearch.bind(this)
     this.getApiToData = this.getApiToData.bind(this)
+    
   }
   
   getApiToData(valueData) {
@@ -27,9 +28,6 @@ class Home extends Component {
     
   }
   
-  handleAddList(e) {
-    e.target.classList.toggle("text-amber-900")
-  }
   
   handleSearch(e) {
      this.setState({valueSearch: e.target.value}, () => {
@@ -55,17 +53,20 @@ class Home extends Component {
        
           {data.map((value, index) => {
             return (
-             <div className="w-2/5 md:mx-2 md:w-2/12">
+             <div key={index} className="w-2/5 md:mx-2 md:w-2/12">
               <div className="w-full md:mx-2 bg-cyan-600 my-4 rounded" key={index} id="cardFilm" >
                  <img src={value.image.medium} />
                  
                  
-                 <button className="text-white text-start p-3 font-bold hover:underline" onClick={() => this.setState({currentDetail: true})}>{value.name}</button>
+                 <button className="text-white text-start p-3 font-bold hover:underline">{value.name}</button>
                  
                  <div className="flex border-t p-2 items-center">
-                 <button className="mx-auto text-white " onClick={this.handleAddList}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                   <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                 <button className="mx-auto text-white" name="tes" id="tes" onClick={e => {
+                  this.props.addList(value.id)
+                  e.target.classList.toggle("text-amber-900")
+                }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16" id="yayay">
+                   <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                       </svg>
                     </button>
                     <p className="mx-auto text-xl">★ {value.rating.average}</p>
@@ -90,7 +91,9 @@ const stateHome = state => {
 
 const actionHome = dispatch => {
   return {
-    getApi: callback => dispatch({type: "getApi", getApiToData:callback })
+    getApi: callback => dispatch({type: "getApi", getApiToData:callback }),
+
+    addList: e => dispatch({type: "addList", target: e})
   }
 }
 
