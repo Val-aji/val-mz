@@ -10,29 +10,32 @@ const initialState = {
   dataApi: [],
   dataList: []
 }
+
 const reducer = (state = initialState, action) => {
   switch(action.type) {
-    
     case "getApi":
-      
-      const {getApiToData} = action
-      axios.get("https://api.tvmaze.com/shows").then(res => {
-        const data = res.data.filter(i => i.id <= 100)
-        getApiToData(data)
-            
-        })
-      break;
-      
-    case "addList":
-      console.log(state.dataApi)
-        const dataList = state.dataApi.filter(i => i.id === action.target)
-        console.log(dataList)
-        return {
-          ...state,
-          dataList: dataList
+       
+       return {
+         ...state,
+         dataApi: action.data
         }
-        break;
-  
+    break;
+    
+    case "addList":
+      const {dataApi, dataList} = state
+      const dataListBaru = dataApi.filter(i => i.id === action.target)[0]
+      
+      let data = [...dataList, dataListBaru]
+     if(dataList.includes(dataListBaru)) {
+       data = dataList.filter(i => i !== dataListBaru)
+       
+     }
+      return {
+        ...state,
+        dataList: data
+      }
+      
+    break;
     default:
        return {...state}
   }

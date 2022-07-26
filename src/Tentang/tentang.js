@@ -7,15 +7,12 @@ class Tentang extends Component {
     this.state = {
       data: []
     }
-    this.setAllData = this.setAllData.bind(this)
+    
   }
   
-  setAllData(value) {
-    this.setState({data: value})
-  }
+
   componentDidMount() {
-    this.props.getApi(this.setAllData)
-    
+    this.setState({data: this.props.dataApi})
   }
   
   
@@ -94,7 +91,7 @@ class Tentang extends Component {
 
 const stateTentang = state => {
   return {
-    
+    dataApi: state.dataApi
   }
 }
 
