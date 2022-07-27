@@ -53,23 +53,29 @@ class List extends Component {
               
               <div className="w-full flex flex-wrap p-3 justify-start bg-slate-50 drop-shadow-md md:w-4/12">
                 <p className="w-2/5 text-lg">Judul </p>
-                <a href={value.url} className="w-3/5 text-base text-cyan-500 hover:underline" target="_blank" > = {value.name} </a>
+                <p className="w-1/6"> = </p>
+                <a href={value.url} className="w-2/5 text-base text-cyan-500 hover:underline" target="_blank" > {value.name} </a>
                 
                 <p className="w-2/5 text-lg">Jenis </p>
-                <p className="w-3/5 text-base text-cyan-600"> = {value.type}</p>
+                 <p className="w-1/6"> = </p>
+                <p className="w-2/5 text-base text-cyan-600"> {value.type}</p>
                
                 <p className="w-2/5 text-lg">Bahasa </p>
-                <p className="w-3/5 text-base text-cyan-600"> = {value.language}</p>
+                 <p className="w-1/6"> = </p>
+                <p className="w-2/5 text-base text-cyan-600"> {value.language}</p>
                 
                 
                 <p className="w-2/5 text-lg">Kategori </p>
-                <p className="w-3/5 text-base text-cyan-600"> = {value.genres.join(", ")}</p>
+                 <p className="w-1/6"> = </p>
+                <p className="w-2/5 text-base text-cyan-600"> {value.genres.join(", ")}</p>
                
                 <p className="w-2/5 text-lg">Negara </p>
-                <p className="w-3/5 text-base text-cyan-600"> = {value.network.country.name}</p>
+                 <p className="w-1/6"> = </p>
+                <p className="w-2/5 text-base text-cyan-600"> {value.network.country.name}</p>
                 
                 <p className="w-2/5 text-lg">situs web </p>
-                <a href={value.officialSite} className="w-3/5 text-base text-cyan-500 underline break-all"> = {value.officialSite}</a>
+                 <p className="w-1/6"> = </p>
+                <a href={value.officialSite} className="w-2/5 text-base text-cyan-500 underline break-all"> {value.officialSite}</a>
                 
               </div>
             </div>

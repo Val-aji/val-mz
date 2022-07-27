@@ -11,6 +11,7 @@ class Home extends Component {
       data: [],
       valueSearch: false,
       dataSearch: [],
+      filterTipe: "All",
       alertFilter: false,
       currentClass: false
     }
@@ -50,7 +51,7 @@ class Home extends Component {
     target.classList.toggle("bg-cyan-500")
     const {dataApi} = this.props
     const data = dataApi.filter(i => i.type === target.value)
-    this.setState({data})
+    this.setState({data, filterTipe: target.value})
     
   }
   
@@ -80,7 +81,7 @@ class Home extends Component {
         <div className="p-2 mb-2 w-full md:w-1/5">
           <p className="text-lg"> Tipe Film : </p>
           <div className="mb-2 flex flex-wrap p-1 3/4">
-            <button className="buttonFilter p-2 bg-cyan-200 rounded-full rounded w-4/5 " value="Scripted" onClick={this.handleFilter}> Scripted </button>
+            <button className="buttonFilter p-2 bg-cyan-200 rounded-full w-4/5 " value="Scripted" onClick={this.handleFilter}> Scripted </button>
             <button className="buttonFilter  my-2 p-2 bg-cyan-200 rounded-full w-4/5" value="Animation" onClick={this.handleFilter}> Animation </button>
             <button className="buttonFilter p-2 bg-cyan-200 rounded-full w-4/5" value="Reality" onClick={this.handleFilter} > Reality </button>
             
@@ -92,7 +93,7 @@ class Home extends Component {
         </div>
         
            <div className="flex w-full justify-end my-1">
-            <button className="p-2 rounded-md bg-cyan-600 " onClick={() => this.setState({data: this.props.dataApi})}> Reset Filter </button> 
+            <button className="p-2 rounded-md bg-cyan-600 " onClick={() => this.setState({data: this.props.dataApi , filterTipe: "All"})}> Reset Filter </button> 
             </div>
       </div>
       
@@ -106,7 +107,7 @@ class Home extends Component {
     return(
       <div className="w-full">
         {state.alertFilter && <this.componentFilter /> }
-        <div className="my-12 p-2 md:px-6 flex w-11/12 justify-between mx-auto">
+        <div className="mt-12 mb-8 p-2 md:px-6 flex w-11/12 justify-between mx-auto">
             <input type="text" className=" w-5/6 md:w-4/6 focus:outline-none rounded border-2 border-cyan-600 py-1 px-3" placeholder="cari film disini... " onChange={this.handleSearch}/>
             <button className="w-1/6 hover:cursor-pointer" onClick={() => this.setState({alertFilter: true})} >
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-filter-left" viewBox="0 0 16 16">
@@ -115,9 +116,13 @@ class Home extends Component {
             </button>
             </div>
        
-       
+       <div className="my-2 border-t flex justify-between">
+         <p className="font-bold text-3xl p-2">Semua Film </p>
+        <p className="mr-2 text-lg p-2"> ({this.state.filterTipe}) </p>
+      </div>
+      
        <div className="flex flex-wrap justify-around px-2 md:justify-center">
-       
+          
           {data.map((value, index) => {
             return (
              <div key={index} className="w-2/5 md:mx-2 md:w-2/12">
