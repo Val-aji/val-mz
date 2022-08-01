@@ -1,12 +1,15 @@
-import "./index.css"
-import Header from "./header";
-
+import HeaderList from "./header";
+import FooterList from "./footer";
+import Middle from "./middle";
 
 function List() {
 
     return (
         <div id="containerList">
-            <Header />
+            <HeaderList />
+            <Middle />
+            
+            <FooterList />
         </div>
     )
 }

@@ -24,7 +24,14 @@ function Nav (props) {
                             {value}
                         </Link>
                     )
+                    
                 })}
+                <div style={{width: "50%", margin: "0 10px"}}>
+                  <button style={{width: "100%", border: "0px solid", height: "50px", borderRadius: "100%"}}>
+                   
+                  </button>
+                  <p style={{textAlign: "center"}}> Nouval </p>
+               </div>
             </div>
         </div>
     )

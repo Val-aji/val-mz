@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .f-roboto {
@@ -32,7 +33,7 @@
 .navLink {
     color: black;
     text-decoration: none;
-    padding: .5rem
+    padding: .5rem;
     
 }
 
@@ -51,7 +52,7 @@
     background-color: white;
     border: 2px solid gray;
     border-radius: 20px;
-    width: 62%;
+    width: 60%;
     padding: 1.5rem 2rem 2.5rem .5rem; 
     margin: 1rem .5rem;
 
@@ -65,13 +66,34 @@
 
 
 .inputSearch {
-    width: 75%;
+    width: 50%;
     height: max-content;
     background-color: #bebebe;
     padding: .5rem;
     border: 1px solid black;
     border-radius: 5px;
 }
+
+.storyCard {
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 100%;
+  background-color: green;
+  
+  display: block;
+}
+.storyOrg {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 .3rem;
+}
+
+.storyOrg > p {
+  text-align: center;
+}
+
 
 #containerCardProduk {
     margin-top: 2rem;
@@ -90,6 +112,7 @@
 
 .namaProduk {
     font-size: .8em;
+    text-align: center;
 }
 .gambarProduk {
     width: 100%;
@@ -116,3 +139,112 @@
     font-size: .8em;
 }
 
+/* END PRODUK START LIST */
+
+
+#containerList {
+  width: 29%;
+  background-color: white;
+  margin: 1rem 0;
+  border: 2px solid gray;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.headerList {
+    height: max-content;
+    padding: .3rem .5rem;
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+}
+
+#buttonEndShift {
+  padding: .3rem;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+#containerMiddle {
+  height: 50%;
+}
+
+.footerList {
+  height: 35%;
+  padding: .3rem .5rem;
+  border-top: 1px solid black;
+}
+
+
+.infoList {
+  
+  padding: .2rem .3rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.paymentButton {
+  width: 100%;
+  padding: .5rem 1rem;
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: black;
+}
+
+
+.cardList {
+  display: flex;
+  width: 100%;
+  height: 120px;
+  padding: 3px 5px;
+  margin: 0 5px;
+  justify-content: center;
+  border: 1px solid black;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.gambarList {
+  border: 1px solid white;
+  border-radius: 2px;
+  width: 20%;
+  height: 80%;
+}
+
+.infoCardList {
+  display: flex;
+}
+
+.btnJumlahBarang {
+  padding: 5px;
+  color: red;
+}
+
+
+.ukuran {
+  padding: 3px;
+  background-color: #bebebe;
+}
+.containerCardList {
+  position: relative;
+}
+.tombolClose {
+  position: absolute;
+  top: 0;
+  left: 3px;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 100%;
+  color: white;
+ 
+}
