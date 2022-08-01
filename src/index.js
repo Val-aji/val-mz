@@ -12,11 +12,12 @@ const storeRedux = createStore(reducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <React.StrictMode> 
    <Provider store={storeRedux}>
     <App />
    </Provider>
-  </React.StrictMode>
+  </React.StrictMode>  
+
 );
 
 

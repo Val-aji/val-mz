@@ -80,28 +80,26 @@ class Home extends Component {
     const {dataList} = this.props
     const data = state.valueSearch === false ? state.data : state.dataSearch
     return(
-      
       <div className="w-full">
-       
-       
-        {/* Component Filter */}
-       {state.alertFilter && <ComponentFilter handleFilter={this.handleFilter} handleReset={this.handleReset} alertFilter={() => this.setState({alertFilter: false })} /> }
-         
-         
-        {/* HEADER */}
-        <Header handleSearch={this.handleSearch} alertFilter={() => this.setState({alertFilter: true}) } />
+          {/* Component Filter */}
+          {state.alertFilter && <ComponentFilter 
+                                  handleFilter={this.handleFilter} handleReset={this.handleReset} alertFilter={() => this.setState({alertFilter: false })} /> }
+          
+          
+          {/* HEADER */}
+          <Header handleSearch={this.handleSearch} alertFilter={() => this.setState({alertFilter: true}) } />
+          
         
-       
-       {/* JUDUL */ }
-       <Judul filterTipe={this.state.filterTipe} /> 
-      
-      {/* CARD */ }
-       <Card data={data} dataList={dataList} loveList={ id => {
-                  this.props.addList(id)
-                  this.setState({currentClass: true})
-                  this.setState({currentClass: false})
-                }} />
-                
+          {/* JUDUL */ }
+          <Judul filterTipe={this.state.filterTipe} /> 
+        
+          {/* CARD */ }
+          <Card data={data} dataList={dataList} 
+                loveList={ id => {
+                    this.props.addList(id)
+                    this.setState({currentClass: true})
+                    this.setState({currentClass: false})}} />
+                  
       </div>
     )
   }

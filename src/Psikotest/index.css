@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.f-roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+#container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: #bebebe;
+}
+
+/* START NAVIGASI  */
+.containerNav {
+    width: 11%;
+    padding: 2rem .5rem .5rem .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    
+}
+.Navs {
+    display: flex;
+    flex-direction: column;
+}
+
+.navLink {
+    color: black;
+    text-decoration: none;
+    padding: .5rem
+    
+}
+
+.navLink:hover {
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-size: 1.2rem;
+}
+
+/* END NAVIGASI */
+
+#Home {
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 20px;
+    width: 62%;
+    padding: 1.5rem 2rem 2.5rem .5rem; 
+    margin: 1rem .5rem;
+
+}
+
+#containerHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.inputSearch {
+    width: 75%;
+    height: max-content;
+    background-color: #bebebe;
+    padding: .5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#containerCardProduk {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cardProduk {
+    width: 17%;
+    margin: .4rem;
+    height: 250px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.namaProduk {
+    font-size: .8em;
+}
+.gambarProduk {
+    width: 100%;
+    height: 70%;
+    border-top: 1px solid black;
+    border-radius: 10px;
+}
+
+
+.infoProduk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hargaProduk {
+    font-weight: bold;
+    margin: .2rem 0;
+}
+
+.kodeProduk {
+    font-family: serif;
+    font-size: .8em;
+}
+
