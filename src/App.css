@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+
+#openToggle {
+  animation-name: swipe;
+  animation-duration: 2s;
+  
+}
+
+@keyframes swipe {
+  0% {
+    margin-left: -200px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+#componentFilter {
+  animation-name: popSm;
+  animation-duration: 2s;
+}
+
+@keyframes popSm {
+  0% {
+    margin-left: -200px
+  }
+  100% {
+    
+    margin-left: 30px
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #componentFilter{
+    animation: popMd 2s;
+  }
+}
+@keyframes popMd{
+  0% {
+    margin-left: -200px
+  }
+  100% {
+    margin-left: 80px
+  }
+}
+

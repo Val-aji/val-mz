@@ -5,7 +5,13 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
+       menus: [ 
+         {url: "/", name: "HOME"},
+         {url: "/list", name: "LIST"},
+         {url: "/tentang", name: "TENTANG"}
+       ],
        classLink: "font-semibold text-xl text-amber-900 hover:transition-all hover:duration-300 hover:underline hover:pointer-cursor hover:text-amber-700 p-2 md:p-0 border md:border-none w-full text-center"
+       
     }
   }
   
@@ -14,7 +20,7 @@ class Nav extends Component {
   }
   
   render() {
-   
+   const {menus, classLink} = this.state
     return(
       <div>
       
@@ -27,20 +33,33 @@ class Nav extends Component {
             <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
            </svg>
          </button>
-         {/* END LAYAR HP DAN START LAYAR TABLET KEATAS */ }
-         
-         <div className="hidden w-1/2 md:flex justify-around">
-          <Link to="/" className={this.state.classLink}> HOME </Link>
-          <Link to="/list" className={this.state.classLink}> LIST </Link>
-          <Link to="/tentang" className={this.state.classLink}>TENTANG </Link>
+ 
+        
+        {/* LAYAR LAPTOP */}
+         <div className="hidden w-1/2 md:flex md:justify-around">
+           {menus.map((value, index) => {
+             return (
+              <>
+               <Link key={index} to={value.url} className={this.state.classLink}>{value.name} </Link>
+              </>
+             )
+           })}
+          
+          </div>
          </div>
-       </div>
        
-        <div className="animation-pulse hidden md:hidden flex flex-col " id="openToggle">
-            <Link to="/" className={this.state.classLink} onClick={this.handleToggle} >HOME</Link>
-            <Link to="/list" className={this.state.classLink} onClick={this.handleToggle}> LIST </Link>
-            <Link to="/tentang" className={this.state.classLink} onClick={this.handleToggle}>TENTANG </Link> 
-         </div>
+       
+       {/* NAV LAYAR HP */}
+        <div className="animation-pulse flex flex-col hidden " id="openToggle">
+            {menus.map((value, index) => {
+              return (
+               <>
+                 <Link to={value.url} className={this.state.classLink} key={index} onClick={this.handleToggle} >{value.name}</Link>
+               </>
+              )
+            })}
+           </div>
+         
       </div>
      )
   }

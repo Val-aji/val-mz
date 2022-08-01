@@ -5,41 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createStore} from "redux";
 import {Provider} from "react-redux"
+import reducer from "./aset/reducer";
 
-const initialState = {
-  dataApi: [],
-  dataList: []
-}
 
-const reducer = (state = initialState, action) => {
-  switch(action.type) {
-    case "getApi":
-       
-       return {
-         ...state,
-         dataApi: action.data
-        }
-    break;
-    
-    case "addList":
-      const {dataApi, dataList} = state
-      const dataListBaru = dataApi.filter(i => i.id === action.target)[0]
-      
-      let data = [...dataList, dataListBaru]
-     if(dataList.includes(dataListBaru)) {
-       data = dataList.filter(i => i !== dataListBaru)
-       
-     }
-      return {
-        ...state,
-        dataList: data
-      }
-      
-    break;
-    default:
-       return {...state}
-  }
-}
 const storeRedux = createStore(reducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
