@@ -6,15 +6,16 @@ function Story() {
     e.target.style.border = "0px solid black";
   }
   return (
-     <div style={{display: "flex", padding: "1.5rem 1rem 0 1rem"}}>
+     <div style={{display: "flex", padding: "1.5rem 1rem 0 1rem", justifyContent: "center"}}>
      
        {arr.map((value, index) => {
          return(
           <div className="storyOrg">
-            <button onClick={story} key={index} className="storyCard">
-              </button>
+            <button onClick={story} 
+            key={index} className="storyCard" style={{backgroundImage: `url(gambar${index}.jpg)`}}>
+            </button>
              <p>Vall </p>
-            </div>
+          </div>
          )
        })}
     

@@ -6,7 +6,7 @@ function Middle() {
      <div className="containerMiddle">
       <div className="containerCardList">
         <div className="cardList">
-          <img src="gambar.jpg" className="gambarList" />
+          <img src="gambar1.jpg" className="gambarList" />
           
           
           <div style={{width: "80%"}}>
@@ -23,24 +23,20 @@ function Middle() {
                  <button className="btnJumlahBarang"> + </button>
                
                </div>
-               
-               
-
-               
              </div>
              <div style={{display: "flex", justifyContent: "space-between", padding: "2px 5px"}}>
                  <div style={{display: "flex", justifyContent:"space-around", width: "50%"}}>
-                   <p className="ukuran">
-                   S </p>
-                  <p className="ukuran">
-                   M </p>
-                  <p className="ukuran">
-                   L </p>
-                  <p className="ukuran">
-                   XL </p>
+                   <button className="ukuran">
+                   S </button>
+                  <button className="ukuran">
+                   M </button>
+                  <button className="ukuran">
+                   L </button>
+                  <button className="ukuran">
+                   XL </button>
                  </div>
                  
-                 <b style={{fontSize: "1.25em", width:"45%"}}>RM 29.00</b>
+                 <b style={{fontSize: "1.25em", width:"45%"}}>RM 299.00</b>
                </div>
              
           </div>

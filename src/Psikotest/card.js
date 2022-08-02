@@ -11,7 +11,7 @@ function Card() {
 
                 <div className="cardProduk" key={index}>
 
-                    <img src="gambar.jpg" className="gambarProduk" />
+                    <img src={`gambar${index+1}.jpg`} className="gambarProduk" />
 
                     <div class="infoProduk" 
                     >
